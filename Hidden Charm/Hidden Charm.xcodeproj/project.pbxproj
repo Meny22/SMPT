@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F52E60A31B1734BA00CBB20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60A21B1734BA00CBB20C /* AppDelegate.swift */; };
+		F52E60A81B1734BA00CBB20C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52E60A61B1734BA00CBB20C /* Main.storyboard */; };
+		F52E60AA1B1734BB00CBB20C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52E60A91B1734BB00CBB20C /* Images.xcassets */; };
+		F52E60AD1B1734BB00CBB20C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52E60AB1B1734BB00CBB20C /* LaunchScreen.xib */; };
+		F52E60B91B1734BB00CBB20C /* Hidden_CharmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60B81B1734BB00CBB20C /* Hidden_CharmTests.swift */; };
+		F52E60C71B17379E00CBB20C /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60C61B17379E00CBB20C /* MainTableViewController.swift */; };
+		F5AF681C1B173C2C00E5C1A7 /* AddContact.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */; };
+		F5AF68201B173DD700E5C1A7 /* Cog.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF681F1B173DD700E5C1A7 /* Cog.png */; };
+		F5AF68221B17405400E5C1A7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F52E60B31B1734BB00CBB20C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F52E60951B1734BA00CBB20C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F52E609C1B1734BA00CBB20C;
+			remoteInfo = "Hidden Charm";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F52E609D1B1734BA00CBB20C /* Hidden Charm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hidden Charm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F52E60A11B1734BA00CBB20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F52E60A21B1734BA00CBB20C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F52E60A71B1734BA00CBB20C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F52E60A91B1734BB00CBB20C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F52E60AC1B1734BB00CBB20C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F52E60B21B1734BB00CBB20C /* Hidden CharmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hidden CharmTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F52E60B71B1734BB00CBB20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F52E60B81B1734BB00CBB20C /* Hidden_CharmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hidden_CharmTests.swift; sourceTree = "<group>"; };
+		F52E60C61B17379E00CBB20C /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AddContact.gif; sourceTree = "<group>"; };
+		F5AF681F1B173DD700E5C1A7 /* Cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cog.png; sourceTree = "<group>"; };
+		F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F52E609A1B1734BA00CBB20C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F52E60AF1B1734BB00CBB20C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F52E60941B1734BA00CBB20C = {
+			isa = PBXGroup;
+			children = (
+				F52E609F1B1734BA00CBB20C /* Hidden Charm */,
+				F52E60B51B1734BB00CBB20C /* Hidden CharmTests */,
+				F52E609E1B1734BA00CBB20C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F52E609E1B1734BA00CBB20C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F52E609D1B1734BA00CBB20C /* Hidden Charm.app */,
+				F52E60B21B1734BB00CBB20C /* Hidden CharmTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F52E609F1B1734BA00CBB20C /* Hidden Charm */ = {
+			isa = PBXGroup;
+			children = (
+				F5AF681F1B173DD700E5C1A7 /* Cog.png */,
+				F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */,
+				F52E60C61B17379E00CBB20C /* MainTableViewController.swift */,
+				F52E60A21B1734BA00CBB20C /* AppDelegate.swift */,
+				F52E60A61B1734BA00CBB20C /* Main.storyboard */,
+				F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */,
+				F52E60A91B1734BB00CBB20C /* Images.xcassets */,
+				F52E60AB1B1734BB00CBB20C /* LaunchScreen.xib */,
+				F52E60A01B1734BA00CBB20C /* Supporting Files */,
+			);
+			path = "Hidden Charm";
+			sourceTree = "<group>";
+		};
+		F52E60A01B1734BA00CBB20C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F52E60A11B1734BA00CBB20C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F52E60B51B1734BB00CBB20C /* Hidden CharmTests */ = {
+			isa = PBXGroup;
+			children = (
+				F52E60B81B1734BB00CBB20C /* Hidden_CharmTests.swift */,
+				F52E60B61B1734BB00CBB20C /* Supporting Files */,
+			);
+			path = "Hidden CharmTests";
+			sourceTree = "<group>";
+		};
+		F52E60B61B1734BB00CBB20C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F52E60B71B1734BB00CBB20C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F52E609C1B1734BA00CBB20C /* Hidden Charm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F52E60BC1B1734BB00CBB20C /* Build configuration list for PBXNativeTarget "Hidden Charm" */;
+			buildPhases = (
+				F52E60991B1734BA00CBB20C /* Sources */,
+				F52E609A1B1734BA00CBB20C /* Frameworks */,
+				F52E609B1B1734BA00CBB20C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hidden Charm";
+			productName = "Hidden Charm";
+			productReference = F52E609D1B1734BA00CBB20C /* Hidden Charm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F52E60B11B1734BB00CBB20C /* Hidden CharmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F52E60BF1B1734BB00CBB20C /* Build configuration list for PBXNativeTarget "Hidden CharmTests" */;
+			buildPhases = (
+				F52E60AE1B1734BB00CBB20C /* Sources */,
+				F52E60AF1B1734BB00CBB20C /* Frameworks */,
+				F52E60B01B1734BB00CBB20C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F52E60B41B1734BB00CBB20C /* PBXTargetDependency */,
+			);
+			name = "Hidden CharmTests";
+			productName = "Hidden CharmTests";
+			productReference = F52E60B21B1734BB00CBB20C /* Hidden CharmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F52E60951B1734BA00CBB20C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Merint van Senus";
+				TargetAttributes = {
+					F52E609C1B1734BA00CBB20C = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = UWTAA8VL2P;
+					};
+					F52E60B11B1734BB00CBB20C = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = F52E609C1B1734BA00CBB20C;
+					};
+				};
+			};
+			buildConfigurationList = F52E60981B1734BA00CBB20C /* Build configuration list for PBXProject "Hidden Charm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F52E60941B1734BA00CBB20C;
+			productRefGroup = F52E609E1B1734BA00CBB20C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F52E609C1B1734BA00CBB20C /* Hidden Charm */,
+				F52E60B11B1734BB00CBB20C /* Hidden CharmTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F52E609B1B1734BA00CBB20C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52E60A81B1734BA00CBB20C /* Main.storyboard in Resources */,
+				F5AF681C1B173C2C00E5C1A7 /* AddContact.gif in Resources */,
+				F52E60AD1B1734BB00CBB20C /* LaunchScreen.xib in Resources */,
+				F5AF68201B173DD700E5C1A7 /* Cog.png in Resources */,
+				F52E60AA1B1734BB00CBB20C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F52E60B01B1734BB00CBB20C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F52E60991B1734BA00CBB20C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52E60C71B17379E00CBB20C /* MainTableViewController.swift in Sources */,
+				F52E60A31B1734BA00CBB20C /* AppDelegate.swift in Sources */,
+				F5AF68221B17405400E5C1A7 /* SettingsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F52E60AE1B1734BB00CBB20C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52E60B91B1734BB00CBB20C /* Hidden_CharmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F52E60B41B1734BB00CBB20C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F52E609C1B1734BA00CBB20C /* Hidden Charm */;
+			targetProxy = F52E60B31B1734BB00CBB20C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F52E60A61B1734BA00CBB20C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F52E60A71B1734BA00CBB20C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F52E60AB1B1734BB00CBB20C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F52E60AC1B1734BB00CBB20C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F52E60BA1B1734BB00CBB20C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F52E60BB1B1734BB00CBB20C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F52E60BD1B1734BB00CBB20C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Hidden Charm/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		F52E60BE1B1734BB00CBB20C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Hidden Charm/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		F52E60C01B1734BB00CBB20C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Hidden CharmTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hidden Charm.app/Hidden Charm";
+			};
+			name = Debug;
+		};
+		F52E60C11B1734BB00CBB20C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Hidden CharmTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hidden Charm.app/Hidden Charm";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F52E60981B1734BA00CBB20C /* Build configuration list for PBXProject "Hidden Charm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F52E60BA1B1734BB00CBB20C /* Debug */,
+				F52E60BB1B1734BB00CBB20C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F52E60BC1B1734BB00CBB20C /* Build configuration list for PBXNativeTarget "Hidden Charm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F52E60BD1B1734BB00CBB20C /* Debug */,
+				F52E60BE1B1734BB00CBB20C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F52E60BF1B1734BB00CBB20C /* Build configuration list for PBXNativeTarget "Hidden CharmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F52E60C01B1734BB00CBB20C /* Debug */,
+				F52E60C11B1734BB00CBB20C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F52E60951B1734BA00CBB20C /* Project object */;
+}
