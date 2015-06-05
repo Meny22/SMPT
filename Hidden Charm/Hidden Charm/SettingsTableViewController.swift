@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    var testArray = ["Seksuele voorkeur","Gezochte leeftijd","Afstand"]
-    var testArray2 = ["Vrouw","18-25","0-25km"]
+    var testArray = ["Nickname","Language","Delay"]
+    var testArray2 = ["R2D2","3 languages enabled","6 hours"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,14 +88,56 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        var selectedRow = self.tableView.indexPathForSelectedRow()!.row
     }
-    */
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        var row = self.tableView.indexPathForSelectedRow()?.row
+        if(row == 0)
+        {
+            var nameAlert = UIAlertController(title: "Rename", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            nameAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+                //nothing happens when it is cancelled
+                
+            }))
+            
+            nameAlert.addAction(UIAlertAction(title: "Rename", style: .Default, handler: { (action: UIAlertAction!) in
+                //something happens
+                var txtboxNickName = nameAlert.textFields?[0] as! UITextField
+                self.testArray2[0] = txtboxNickName.text
+                self.tableView.reloadData()
+            }))
+            
+            
+            nameAlert.addTextFieldWithConfigurationHandler{ (textfield) in
+                textfield.text = self.testArray2[0]
+            }
+            
+            self.presentViewController(nameAlert, animated: true) {
+                var textfield = nameAlert.textFields?[0] as! UITextField
+                textfield.selectAll(nil)
+            }
+
+            
+            return false
+        }
+        else if(row == 1)
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+    
 
 }
