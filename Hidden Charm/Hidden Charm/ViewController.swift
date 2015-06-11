@@ -14,7 +14,10 @@ class ViewController: UIViewController, PNDelegate {
     var channel = PNChannel()
     var base64String : String!
     var message: String!
-    @IBOutlet weak var tvMessageView: UITextView!
+    @IBOutlet weak var bottomConstraintText: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraints: NSLayoutConstraint!
+    @IBOutlet weak var tvMessageResponder: UITextView!
+    @IBOutlet weak var tvMessageSender: UITextView!
     @IBOutlet weak var tfMessage: UITextField!
     override func viewDidLoad() {
         initializeConn()
@@ -30,15 +33,14 @@ class ViewController: UIViewController, PNDelegate {
     func initializeConn() {
         PubNub.setDelegate(self)
         PubNub.setConfiguration(PNConfiguration.defaultConfiguration())
-        
         PubNub.connect()
         
         self.channel = PNChannel.channelWithName("testChannel") as! PNChannel
         
         PubNub.subscribeOn([channel])
         
-        
     }
+    
     
     @IBAction func sendMessage(sender: UIButton) {
         //sendImage()
@@ -49,10 +51,13 @@ class ViewController: UIViewController, PNDelegate {
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
-            tvMessageView.text = message.message as! String?
-            println("Received")
-            //decodeImage(message.message as! String)
-        
+        if(self.message != message.message as? String) {
+            tvMessageResponder.text = tvMessageResponder.text + "\n\(message.message)"
+        }
+        else {
+            tvMessageSender.text = tvMessageSender.text + "\n\(message.message)"
+        }
+        println("Received")
     }
     
     func sendImage() {
@@ -66,6 +71,32 @@ class ViewController: UIViewController, PNDelegate {
         let decodedData = NSData(base64EncodedString: message, options: NSDataBase64DecodingOptions(rawValue: 0))
         var decodedimage = UIImage(data: decodedData!)
         yourImageView.image = decodedimage
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let center = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: "keyboardOnScreen:", name: UIKeyboardDidShowNotification, object: nil)
+        center.addObserver(self, selector: "keyboardOffScreen:", name: UIKeyboardDidHideNotification, object: nil)
+        
+    }
+    
+    func keyboardOnScreen(notification: NSNotification){
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.01, animations: { () -> Void in
+            self.bottomConstraints.constant = keyboardFrame.size.height + 15
+        })
+        UIView.animateWithDuration(0.01, animations: { () -> Void in
+            self.bottomConstraintText.constant = keyboardFrame.size.height + 15
+        })
+        println("On screen")
+    }
+    
+    
+    func keyboardOffScreen(notification: NSNotification){
+        
     }
     
 
