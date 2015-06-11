@@ -14,6 +14,10 @@
 		F52E60AD1B1734BB00CBB20C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52E60AB1B1734BB00CBB20C /* LaunchScreen.xib */; };
 		F52E60B91B1734BB00CBB20C /* Hidden_CharmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60B81B1734BB00CBB20C /* Hidden_CharmTests.swift */; };
 		F52E60C71B17379E00CBB20C /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60C61B17379E00CBB20C /* MainTableViewController.swift */; };
+		F54D680E1B29929F00BE2AD9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D680D1B29929F00BE2AD9 /* CollectionViewCell.swift */; };
+		F54D68101B2992EC00BE2AD9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D680F1B2992EC00BE2AD9 /* CollectionViewController.swift */; };
+		F54D68121B2993A900BE2AD9 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D68111B2993A900BE2AD9 /* LanguageViewController.swift */; };
+		F54D68141B299B4300BE2AD9 /* Flags in Resources */ = {isa = PBXBuildFile; fileRef = F54D68131B299B4300BE2AD9 /* Flags */; };
 		F5AF681C1B173C2C00E5C1A7 /* AddContact.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */; };
 		F5AF68201B173DD700E5C1A7 /* Cog.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF681F1B173DD700E5C1A7 /* Cog.png */; };
 		F5AF68221B17405400E5C1A7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */; };
@@ -44,6 +48,10 @@
 		F52E60B71B1734BB00CBB20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F52E60B81B1734BB00CBB20C /* Hidden_CharmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hidden_CharmTests.swift; sourceTree = "<group>"; };
 		F52E60C61B17379E00CBB20C /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		F54D680D1B29929F00BE2AD9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		F54D680F1B2992EC00BE2AD9 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		F54D68111B2993A900BE2AD9 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		F54D68131B299B4300BE2AD9 /* Flags */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Flags; sourceTree = "<group>"; };
 		F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AddContact.gif; sourceTree = "<group>"; };
 		F5AF681F1B173DD700E5C1A7 /* Cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cog.png; sourceTree = "<group>"; };
 		F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 		F52E609F1B1734BA00CBB20C /* Hidden Charm */ = {
 			isa = PBXGroup;
 			children = (
+				F54D68131B299B4300BE2AD9 /* Flags */,
 				F5E33AA61B2970EB0048A66E /* HiddenCharm-Bridging-Header.h */,
 				F5AF681F1B173DD700E5C1A7 /* Cog.png */,
 				F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */,
@@ -121,6 +130,9 @@
 				F52E60A91B1734BB00CBB20C /* Images.xcassets */,
 				F52E60AB1B1734BB00CBB20C /* LaunchScreen.xib */,
 				F52E60A01B1734BA00CBB20C /* Supporting Files */,
+				F54D680D1B29929F00BE2AD9 /* CollectionViewCell.swift */,
+				F54D680F1B2992EC00BE2AD9 /* CollectionViewController.swift */,
+				F54D68111B2993A900BE2AD9 /* LanguageViewController.swift */,
 			);
 			path = "Hidden Charm";
 			sourceTree = "<group>";
@@ -233,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54D68141B299B4300BE2AD9 /* Flags in Resources */,
 				F52E60A81B1734BA00CBB20C /* Main.storyboard in Resources */,
 				F5AF681C1B173C2C00E5C1A7 /* AddContact.gif in Resources */,
 				F52E60AD1B1734BB00CBB20C /* LaunchScreen.xib in Resources */,
@@ -288,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54D68101B2992EC00BE2AD9 /* CollectionViewController.swift in Sources */,
+				F54D680E1B29929F00BE2AD9 /* CollectionViewCell.swift in Sources */,
 				F52E60C71B17379E00CBB20C /* MainTableViewController.swift in Sources */,
 				F52E60A31B1734BA00CBB20C /* AppDelegate.swift in Sources */,
 				F5E33AA41B296FC80048A66E /* ViewController.swift in Sources */,
+				F54D68121B2993A900BE2AD9 /* LanguageViewController.swift in Sources */,
 				F5AF68221B17405400E5C1A7 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
