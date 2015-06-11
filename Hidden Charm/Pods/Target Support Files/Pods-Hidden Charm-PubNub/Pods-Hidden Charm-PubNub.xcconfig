@@ -1,0 +1,1 @@
+PODS_HIDDEN_CHARM_PUBNUB_OTHER_LDFLAGS = -l"z" -framework "CFNetwork" -framework "SystemConfiguration"
