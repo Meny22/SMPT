@@ -9,6 +9,9 @@
 import UIKit
 
 class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLayout, UICollectionViewDataSource  {
+    
+    var countries = ["Austria.png", "Belgium.png", "Bulgaria.png", "Czech Republic.png", "Denmark.png", "Estonia.png", "Finland.png", "France.png", "Germany.png", "Greece.png", "Hungary.png", "Iceland.png", "Ireland.png", "Italy.png", "Latvia.png", "Lithuania.png", "Morocco.png", "Netherlands.png", "Norway.png", "Poland.png", "Portugal.png", "Romania.png", "Russia.png", "Spain.png", "Sweden.png", "Switzerland.png", "Tunisia.png", "Turkey.png", "Ukraine.png", "United Kingdom.png"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Get screen sizes
@@ -24,8 +27,8 @@ class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLay
         
         //Afbeelding is 2/3 van de cell, afbeelding moet vierkant zijn dus breedte:hoogte = 1:1.333
         // Er wordt 20 van de breedte afgehaald omdat er anders maar 1 cell in de breedte is ipv 2
-        var width = ((screenWidth/2) - 20) * (0.8)
-        var heigth = (screenWidth/2 - 20) * (1)
+        var width = ((screenWidth/3) - 20) * (0.8)
+        var heigth = (screenWidth/3 - 20) * (1)
         layout.itemSize = CGSize(width: width, height: heigth)
         
         var frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - self.navigationController!.navigationBar.frame.height)
@@ -48,17 +51,14 @@ class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLay
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //        return activityProvider!.getActivities().count
-        return 30
+        return countries.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
         var imageView = cell.imageView
-        if(indexPath.row == 0){
-        imageView!.image = UIImage(named: "Flags/Netherlands.png")
-        }else if(indexPath.row == 1){
-        imageView!.image = UIImage(named: "Flags/Germany.png")
-        }
+        imageView!.image = UIImage(named: "Flags/" + countries[indexPath.row])
+
         return cell
     }
     
