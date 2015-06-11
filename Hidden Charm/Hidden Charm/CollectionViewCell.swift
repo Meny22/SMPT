@@ -11,7 +11,7 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     var imageView: UIImageView?
-    
+    var title: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

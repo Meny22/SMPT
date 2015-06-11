@@ -21,9 +21,9 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDefaults.setValue("R2D2", forKey: "Nickname")
-        userDefaults.setValue("1 day", forKey: "Delay")
-        userDefaults.setValue("English", forKey: "Language")
+        //userDefaults.setValue("R2D2", forKey: "Nickname")
+        //userDefaults.setValue("1 day", forKey: "Delay")
+        //userDefaults.setValue("English", forKey: "Language")
         
         var pickerFrame = CGRectMake((screenSize.width/6) , screenSize.height/6 - 40, screenSize.width/2, screenSize.height/3)
         
@@ -36,7 +36,15 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
     }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        println("viewWillReload")
+        self.tableView.reloadData()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

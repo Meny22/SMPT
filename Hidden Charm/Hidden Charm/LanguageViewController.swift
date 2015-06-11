@@ -10,7 +10,13 @@ import UIKit
 
 class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLayout, UICollectionViewDataSource  {
     
-    var countries = ["Austria.png", "Belgium.png", "Bulgaria.png", "Czech Republic.png", "Denmark.png", "Estonia.png", "Finland.png", "France.png", "Germany.png", "Greece.png", "Hungary.png", "Iceland.png", "Ireland.png", "Italy.png", "Latvia.png", "Lithuania.png", "Morocco.png", "Netherlands.png", "Norway.png", "Poland.png", "Portugal.png", "Romania.png", "Russia.png", "Spain.png", "Sweden.png", "Switzerland.png", "Tunisia.png", "Turkey.png", "Ukraine.png", "United Kingdom.png"]
+    var countries = ["Austria", "Belgium", "Bulgaria", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia", "Lithuania", "Morocco", "Netherlands", "Norway", "Poland", "Portugal", "Romania", "Russia", "Spain", "Sweden", "Switzerland", "Tunisia", "Turkey", "Ukraine", "United Kingdom"]
+    
+    var country: String?
+    
+    var mycollectionView:UICollectionView!
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +24,8 @@ class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLay
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width
         let screenHeigt = screenSize.height
+        
+        country = userDefaults.valueForKey("Language") as! String
         
         //Create itemProvider
         
@@ -33,13 +41,14 @@ class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLay
         
         var frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - self.navigationController!.navigationBar.frame.height)
         
-        var mycollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        mycollectionView.dataSource = self
-        mycollectionView.delegate = self
-        mycollectionView.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        mycollectionView.backgroundColor = UIColor.whiteColor()
-        self.view.addSubview(mycollectionView)
+        mycollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        mycollectionView!.dataSource = self
+        mycollectionView!.delegate = self
+        mycollectionView!.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        mycollectionView!.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(mycollectionView!)
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,13 +66,25 @@ class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLay
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
         var imageView = cell.imageView
-        imageView!.image = UIImage(named: "Flags/" + countries[indexPath.row])
-
+        imageView!.image = UIImage(named: "Flags/" + countries[indexPath.row] + ".png")
+        cell.title = countries[indexPath.row]
+        if(cell.title == country){
+            imageView!.layer.borderColor = UIColor.greenColor().CGColor
+        }
+        else{
+            imageView!.layer.borderColor = UIColor.redColor().CGColor
+        }
+        imageView!.layer.borderWidth = 5
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionViewCell
+        println(indexPath.row)
+        userDefaults.setValue(cell.title, forKey: "Language")
+        userDefaults.synchronize()
+        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
@@ -80,8 +101,9 @@ class LanguageViewController: UIViewController , UICollectionViewDelegateFlowLay
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionViewCell
         var scale: CGFloat = 0.9
         cell.scaleImageView(scale, operation: "devide")
+        
     }
-    
+
 
     override func viewDidLayoutSubviews() {
         // Do any additional setup after loading the view
