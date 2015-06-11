@@ -10,8 +10,10 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    var testArray = ["Nickname","Language","Delay"]
-    var testArray2 = ["R2D2","3 languages enabled","6 hours"]
+    var settingTypesArray = ["Nickname","Language","Delay"]
+    var delayArray = ["1 month","1 week", "1 day", "12 hours", "6 hours", "3 hours", "1 hour"]
+    
+    let screenSize: CGSize = UIScreen.mainScreen().applicationFrame.size
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -20,8 +22,10 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         userDefaults.setValue("R2D2", forKey: "Nickname")
+        userDefaults.setValue("1 day", forKey: "Delay")
+        userDefaults.setValue("English", forKey: "Language")
         
-        var pickerFrame = CGRectMake(50, -50, 50, 50)
+        var pickerFrame = CGRectMake((screenSize.width/6) , screenSize.height/6 - 40, screenSize.width/2, screenSize.height/3)
         
         mypicker = UIPickerView(frame: pickerFrame)
         mypicker!.dataSource = self
@@ -57,12 +61,19 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("settingsCell", forIndexPath: indexPath) as! UITableViewCell
 
-        cell.textLabel?.text = testArray[indexPath.row]
-        cell.detailTextLabel?.text = testArray2[indexPath.row]
+        cell.textLabel?.text = settingTypesArray[indexPath.row]
         
         if(indexPath.row == 0)
         {
             cell.detailTextLabel!.text = userDefaults.valueForKey("Nickname") as! String
+        }
+        else if(indexPath.row == 1)
+        {
+            cell.detailTextLabel!.text = userDefaults.valueForKey("Language") as! String
+        }
+        else if(indexPath.row == 2)
+        {
+            cell.detailTextLabel!.text = userDefaults.valueForKey("Delay") as! String
         }
 
         return cell
@@ -152,7 +163,7 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         }
         else if(row == 2)
         {
-            var nameAlert = UIAlertController(title: "Delay", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            var nameAlert = UIAlertController(title: "Delay", message: "\n\n\n\n\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
             nameAlert.modalInPopover = true
             
             nameAlert.view.addSubview(mypicker!)
@@ -164,7 +175,9 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
             }))
             
             nameAlert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { (action: UIAlertAction!) in
-                println(self.testArray[self.mypicker!.selectedRowInComponent(0)])
+                self.userDefaults.setValue(self.delayArray[self.mypicker!.selectedRowInComponent(0)], forKey: "Delay")
+                self.userDefaults.synchronize()
+                self.tableView.reloadData()
             }))
 
             self.presentViewController(nameAlert, animated: true) {
@@ -183,11 +196,11 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         return 1
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return testArray.count
+        return delayArray.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return testArray[row]
+        return delayArray[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
