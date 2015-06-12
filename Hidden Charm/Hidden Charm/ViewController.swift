@@ -8,21 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController, PNDelegate {
+class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     
+    var y:CGFloat = 10
     @IBOutlet weak var yourImageView: UIImageView!
     var channel = PNChannel()
     var base64String : String!
     var message: String!
     @IBOutlet weak var bottomConstraintText: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraintScroll: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraints: NSLayoutConstraint!
-    @IBOutlet weak var tvMessageResponder: UITextView!
-    @IBOutlet weak var tvMessageSender: UITextView!
     @IBOutlet weak var tfMessage: UITextField!
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var svMessages: UIScrollView!
+    
+    
     override func viewDidLoad() {
         initializeConn()
+        tfMessage.delegate = self
         super.viewDidLoad()
+        self.view.sendSubviewToBack(svMessages)
+        self.view.sendSubviewToBack(background)
         // Do any additional setup after loading the view, typically from a nib.
+        var tap = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        svMessages.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +50,12 @@ class ViewController: UIViewController, PNDelegate {
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
     
     @IBAction func sendMessage(sender: UIButton) {
         //sendImage()
@@ -51,13 +66,35 @@ class ViewController: UIViewController, PNDelegate {
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
+        var label = UILabel(frame: CGRectMake(0, 0, 250, 21))
+        
+        label.textAlignment = NSTextAlignment.Left
+        label.layer.cornerRadius = 7
+        label.contentMode = UIViewContentMode.ScaleAspectFill
+        label.clipsToBounds = true
         if(self.message != message.message as? String) {
-            tvMessageResponder.text = tvMessageResponder.text + "\n\(message.message)"
+            label.textAlignment = NSTextAlignment.Left
+            label.backgroundColor = UIColor.grayColor()
+            label.center = CGPointMake(139, y)
         }
         else {
-            tvMessageSender.text = tvMessageSender.text + "\n\(message.message)"
+            label.textAlignment = NSTextAlignment.Right
+            label.backgroundColor = UIColor.greenColor()
+            label.center = CGPointMake(149, y)
         }
-        println("Received")
+        label.text = "\(message.message)"
+        label.numberOfLines = 0
+        println(label.frame.width)
+        label.sizeToFit()
+        if(label.frame.width < 250)
+        {
+            var widthAdd: CGFloat = 250
+            label.frame.size.width = widthAdd
+        }
+        y += label.frame.height + 5
+        self.svMessages.addSubview(label)
+        svMessages.contentSize.height = y;
+        tfMessage.text = ""
     }
     
     func sendImage() {
@@ -91,15 +128,30 @@ class ViewController: UIViewController, PNDelegate {
         UIView.animateWithDuration(0.01, animations: { () -> Void in
             self.bottomConstraintText.constant = keyboardFrame.size.height + 15
         })
+        UIView.animateWithDuration(0.01, animations: { () -> Void in
+            self.bottomConstraintScroll.constant = keyboardFrame.size.height + 55
+        })
         println("On screen")
     }
     
     
     func keyboardOffScreen(notification: NSNotification){
+        var info = notification.userInfo!
         
+        UIView.animateWithDuration(0.0, animations: { () -> Void in
+            self.bottomConstraints.constant = 28
+        })
+        UIView.animateWithDuration(0.0, animations: { () -> Void in
+            self.bottomConstraintText.constant = 15
+        })
+        UIView.animateWithDuration(0.01, animations: { () -> Void in
+            self.bottomConstraintScroll.constant = 73
+        })
+        println("Off screen")
     }
-    
-
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
 
 }
 
