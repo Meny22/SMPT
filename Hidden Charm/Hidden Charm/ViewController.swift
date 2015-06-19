@@ -15,6 +15,8 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     var channel = PNChannel()
     var base64String : String!
     var message: String!
+    var canSendMessage = true
+    var partnerName:String!
     @IBOutlet weak var bottomConstraintText: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraintScroll: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraints: NSLayoutConstraint!
@@ -22,9 +24,9 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var svMessages: UIScrollView!
     
-    
     override func viewDidLoad() {
         initializeConn()
+        self.title = partnerName
         tfMessage.delegate = self
         super.viewDidLoad()
         self.view.sendSubviewToBack(svMessages)
@@ -60,9 +62,22 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     @IBAction func sendMessage(sender: UIButton) {
         //sendImage()
         //message = base64String
-        message = tfMessage.text
-        println("sendClicked");
-        PubNub.sendMessage(message, toChannel: channel)
+        if(canSendMessage && tfMessage.text != "") {
+            message = tfMessage.text
+            println("sendClicked");
+            PubNub.sendMessage(message, toChannel: channel)
+            canSendMessage = false
+        } else if(tfMessage.text == ""){
+            let alertController = UIAlertController(title:"Empty message", message: "Cannot send an empty message", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else if(!canSendMessage){
+            println("CANT SEND MESSAGE")
+            let alertController = UIAlertController(title:"Wait for response", message: "You have sent the last message, please wait for response from your chat partner", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
@@ -76,11 +91,14 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             label.textAlignment = NSTextAlignment.Left
             label.backgroundColor = UIColor.grayColor()
             label.center = CGPointMake(139, y)
+            canSendMessage = true
         }
         else {
             label.textAlignment = NSTextAlignment.Right
             label.backgroundColor = UIColor.greenColor()
             label.center = CGPointMake(149, y)
+            tfMessage.text = ""
+            
         }
         label.text = "\(message.message)"
         label.numberOfLines = 0
@@ -94,7 +112,6 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         y += label.frame.height + 5
         self.svMessages.addSubview(label)
         svMessages.contentSize.height = y;
-        tfMessage.text = ""
     }
     
     func sendImage() {
