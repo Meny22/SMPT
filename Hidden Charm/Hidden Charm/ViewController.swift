@@ -74,7 +74,7 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             
         } else if(!canSendMessage){
             println("CANT SEND MESSAGE")
-            let alertController = UIAlertController(title:"Wait for response", message: "You have sent the last message, please wait for response from your chat partner", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title:"Wait for response", message: "The last message was sent by you, please wait for a response from your chat partner", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
