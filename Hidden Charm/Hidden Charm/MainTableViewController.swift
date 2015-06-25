@@ -91,6 +91,17 @@ class MainTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        let delete = UITableViewRowAction(style: .Normal, title: "Delete") {
+            action, index in
+            println("more button tapped")
+        }
+        
+        delete.backgroundColor = UIColor.redColor()
+        
+        return [delete]
+    }
 
     /*
     // Override to support editing the table view.
