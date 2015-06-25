@@ -22,6 +22,7 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         //if(userDefaults.valueForKey("Nickname")==nil){
             userDefaults.setValue("R2D2", forKey: "Nickname")
@@ -29,6 +30,11 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
             userDefaults.setValue("English", forKey: "Language")
             userDefaults.setObject(NSDate(), forKey: "receiveDate")
         //}
+=======
+        //userDefaults.setValue("R2D2", forKey: "Nickname")
+        //userDefaults.setValue("1 day", forKey: "Delay")
+        //userDefaults.setValue("English", forKey: "Language")
+>>>>>>> parent of 92e9313... If statement
 =======
         //userDefaults.setValue("R2D2", forKey: "Nickname")
         //userDefaults.setValue("1 day", forKey: "Delay")
