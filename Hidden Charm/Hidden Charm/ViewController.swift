@@ -13,10 +13,12 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     var y:CGFloat = 10
     @IBOutlet weak var yourImageView: UIImageView!
     var channel = PNChannel()
+    var dateFormatter:NSDateFormatter!
     var base64String : String!
     var message: String!
     var canSendMessage = true
     var partnerName:String!
+    var userDefault=NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var bottomConstraintText: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraintScroll: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraints: NSLayoutConstraint!
@@ -59,30 +61,83 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     }
     
     
+    @IBOutlet weak var sendButton: UIButton!
     @IBAction func sendMessage(sender: UIButton) {
         //sendImage()
         //message = base64String
+        var sendDate = getDelay()
         if(canSendMessage && tfMessage.text != "") {
-            message = tfMessage.text
-            println("sendClicked");
+            message = sendDate.description + tfMessage.text
+            message = message!.stringByReplacingOccurrencesOfString("fuck", withString: "love", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            println(message);
             PubNub.sendMessage(message, toChannel: channel)
             canSendMessage = false
-        } else if(tfMessage.text == ""){
+        } else if(tfMessage.text  == ""){
             let alertController = UIAlertController(title:"Empty message", message: "Cannot send an empty message", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alertController, animated: true, completion: nil)
-            
-        } else if(!canSendMessage){
-            println("CANT SEND MESSAGE")
-            let alertController = UIAlertController(title:"Wait for response", message: "You have sent the last message, please wait for response from your chat partner", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
+    func getDelay() -> NSDate{
+        var dateString = userDefault.valueForKey("Delay") as! String
+        var date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
+        let day = components.day
+        let month = components.month
+        let year = components.year
+        println("\(year),\(month),\(day),\(hour),\(minutes)")
+        switch(dateString) {
+        case "1 month" :
+            date = addTime(1, unit: NSCalendarUnit.CalendarUnitMonth, date: date)
+            break
+        case "1 week" :
+            date = addTime(7, unit: NSCalendarUnit.CalendarUnitDay, date:date)
+            break
+        case "1 day" :
+            date = addTime(1, unit: NSCalendarUnit.CalendarUnitDay, date:date)
+            break
+        case "12 hours" :
+            date = addTime(12, unit: NSCalendarUnit.CalendarUnitHour, date:date)
+            break
+        case "6 hours" :
+            date = addTime(6, unit: NSCalendarUnit.CalendarUnitHour, date:date)
+            break
+        case "3 hours" :
+            date = addTime(3, unit: NSCalendarUnit.CalendarUnitHour, date:date)
+            break
+        case "1 hour" :
+            date = addTime(1, unit: NSCalendarUnit.CalendarUnitHour, date:date)
+            break
+        default :
+            break
+        }
+        dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //format style. Browse online to get a format that fits your needs.
+        var dateFormat = dateFormatter.stringFromDate(date)
+        println(dateFormat)
+        return date
+    }
+    
+    func addTime(value:Int,unit:NSCalendarUnit, date:NSDate) -> NSDate{
+        let earlyDate = NSCalendar.currentCalendar().dateByAddingUnit(
+            unit,
+            value: value,
+            toDate: date,
+            options: NSCalendarOptions.WrapComponents)
+        return earlyDate!
+    }
+    
+    func compareDate() {
+        var dateMessage = userDefault.objectForKey("receiveDate") as! NSDate
+        println("Default Value:" + dateMessage.description)
+    }
+    
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
         var label = UILabel(frame: CGRectMake(0, 0, 250, 21))
-        
         label.textAlignment = NSTextAlignment.Left
         label.layer.cornerRadius = 7
         label.contentMode = UIViewContentMode.ScaleAspectFill
@@ -92,15 +147,21 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             label.backgroundColor = UIColor.grayColor()
             label.center = CGPointMake(139, y)
             canSendMessage = true
+            tfMessage.hidden = false
+            sendButton.hidden = false
         }
         else {
             label.textAlignment = NSTextAlignment.Right
             label.backgroundColor = UIColor.greenColor()
             label.center = CGPointMake(149, y)
             tfMessage.text = ""
+            sendButton.hidden = true
+            tfMessage.hidden = true
             
         }
-        label.text = "\(message.message)"
+        var dateMessage = message.message.substringWithRange(NSRange(location:0, length:25))
+        var chatMessage = message.message.substringWithRange(NSRange(location:25, length:message.message.length-25))
+        label.text = "\(chatMessage)"
         label.numberOfLines = 0
         println(label.frame.width)
         label.sizeToFit()
@@ -112,6 +173,9 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         y += label.frame.height + 5
         self.svMessages.addSubview(label)
         svMessages.contentSize.height = y;
+        dateFormatter.dateFromString(dateMessage)
+        userDefault.setObject(dateFormatter.dateFromString(dateMessage), forKey: "receiveDate")
+        compareDate()
     }
     
     func sendImage() {
