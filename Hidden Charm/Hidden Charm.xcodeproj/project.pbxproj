@@ -22,15 +22,7 @@
 		F5AF68201B173DD700E5C1A7 /* Cog.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF681F1B173DD700E5C1A7 /* Cog.png */; };
 		F5AF68221B17405400E5C1A7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */; };
 		F5E33AA41B296FC80048A66E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E33AA31B296FC80048A66E /* ViewController.swift */; };
-<<<<<<< HEAD
-<<<<<<< HEAD
-		F5E33AB01B3C18380048A66E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E33AAF1B3C18380048A66E /* DateExtension.swift */; };
-=======
 		F5E33AAA1B2ACF400048A66E /* 795cabc4647f73b365e2e6eabd0f34dc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5E33AA91B2ACF400048A66E /* 795cabc4647f73b365e2e6eabd0f34dc.jpg */; };
->>>>>>> parent of 92e9313... If statement
-=======
-		F5E33AAA1B2ACF400048A66E /* 795cabc4647f73b365e2e6eabd0f34dc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5E33AA91B2ACF400048A66E /* 795cabc4647f73b365e2e6eabd0f34dc.jpg */; };
->>>>>>> parent of 92e9313... If statement
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,15 +58,7 @@
 		F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F5E33AA31B296FC80048A66E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5E33AA61B2970EB0048A66E /* HiddenCharm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiddenCharm-Bridging-Header.h"; path = "../HiddenCharm-Bridging-Header.h"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-<<<<<<< HEAD
-		F5E33AAF1B3C18380048A66E /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-=======
 		F5E33AA91B2ACF400048A66E /* 795cabc4647f73b365e2e6eabd0f34dc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 795cabc4647f73b365e2e6eabd0f34dc.jpg; path = ../../../../Downloads/795cabc4647f73b365e2e6eabd0f34dc.jpg; sourceTree = "<group>"; };
->>>>>>> parent of 92e9313... If statement
-=======
-		F5E33AA91B2ACF400048A66E /* 795cabc4647f73b365e2e6eabd0f34dc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 795cabc4647f73b365e2e6eabd0f34dc.jpg; path = ../../../../Downloads/795cabc4647f73b365e2e6eabd0f34dc.jpg; sourceTree = "<group>"; };
->>>>>>> parent of 92e9313... If statement
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +136,6 @@
 				F54D680D1B29929F00BE2AD9 /* CollectionViewCell.swift */,
 				F54D680F1B2992EC00BE2AD9 /* CollectionViewController.swift */,
 				F54D68111B2993A900BE2AD9 /* LanguageViewController.swift */,
-				F5E33AAF1B3C18380048A66E /* DateExtension.swift */,
 			);
 			path = "Hidden Charm";
 			sourceTree = "<group>";
@@ -323,7 +306,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F54D68101B2992EC00BE2AD9 /* CollectionViewController.swift in Sources */,
-				F5E33AB01B3C18380048A66E /* DateExtension.swift in Sources */,
 				F54D680E1B29929F00BE2AD9 /* CollectionViewCell.swift in Sources */,
 				F52E60C71B17379E00CBB20C /* MainTableViewController.swift in Sources */,
 				F52E60A31B1734BA00CBB20C /* AppDelegate.swift in Sources */,
