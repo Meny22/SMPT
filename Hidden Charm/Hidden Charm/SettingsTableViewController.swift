@@ -25,6 +25,13 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         //userDefaults.setValue("1 day", forKey: "Delay")
         //userDefaults.setValue("English", forKey: "Language")
         
+        if(userDefaults.valueForKey("Nickname")==nil){
+        userDefaults.setValue("R2D2", forKey: "Nickname")
+        userDefaults.setValue("1 day", forKey: "Delay")
+        userDefaults.setValue("English", forKey: "Language")
+        userDefaults.setObject(NSDate(), forKey: "receiveDate")
+        }
+        
         var pickerFrame = CGRectMake((screenSize.width/6) , screenSize.height/6 - 40, screenSize.width/2, screenSize.height/3)
         
         mypicker = UIPickerView(frame: pickerFrame)

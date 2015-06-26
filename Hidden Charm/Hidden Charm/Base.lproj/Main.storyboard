@@ -196,6 +196,7 @@
                         <outlet property="bottomConstraintScroll" destination="02f-Cl-6Jg" id="q6P-mU-HRd"/>
                         <outlet property="bottomConstraintText" destination="sOi-8Z-KbS" id="HJD-Bu-hU0"/>
                         <outlet property="bottomConstraints" destination="oOW-zw-Tps" id="qwM-Hk-6Ru"/>
+                        <outlet property="sendButton" destination="yPd-90-p60" id="Qoo-Qs-tQt"/>
                         <outlet property="svMessages" destination="ewi-xs-z7C" id="8Aj-L3-vSv"/>
                         <outlet property="tfMessage" destination="n1a-B6-SF4" id="VIg-cm-t3G"/>
                     </connections>
