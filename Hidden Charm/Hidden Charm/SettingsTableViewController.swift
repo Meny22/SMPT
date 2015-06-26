@@ -79,7 +79,7 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         cell.textLabel?.text = settingTypesArray[indexPath.row]
         
         let swiftColor = UIColor(red: 0.95, green: 0.99, blue: 0.99, alpha: 1)
-        let swiftColor2 = UIColor(red: 0.95, green: 0.99, blue: 0.97, alpha: 1)
+        let swiftColor2 = UIColor(red: 0.98, green: 0.99, blue: 0.99, alpha: 1)
         // Configure the cell...
         if(indexPath.row % 2 == 0)
         {
@@ -87,7 +87,7 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
         }
         else
         {
-            cell.backgroundColor = swiftColor
+            cell.backgroundColor = UIColor.whiteColor()
         }
         
         if(indexPath.row == 0)

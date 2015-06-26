@@ -10,7 +10,6 @@
 		2ACFF7382ED5629B004B624B /* libPods-Hidden Charm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 629F885E31EA2635D750ECD7 /* libPods-Hidden Charm.a */; };
 		F52E60A31B1734BA00CBB20C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60A21B1734BA00CBB20C /* AppDelegate.swift */; };
 		F52E60A81B1734BA00CBB20C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52E60A61B1734BA00CBB20C /* Main.storyboard */; };
-		F52E60AA1B1734BB00CBB20C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52E60A91B1734BB00CBB20C /* Images.xcassets */; };
 		F52E60AD1B1734BB00CBB20C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52E60AB1B1734BB00CBB20C /* LaunchScreen.xib */; };
 		F52E60B91B1734BB00CBB20C /* Hidden_CharmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60B81B1734BB00CBB20C /* Hidden_CharmTests.swift */; };
 		F52E60C71B17379E00CBB20C /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E60C61B17379E00CBB20C /* MainTableViewController.swift */; };
@@ -18,10 +17,14 @@
 		F54D68101B2992EC00BE2AD9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D680F1B2992EC00BE2AD9 /* CollectionViewController.swift */; };
 		F54D68121B2993A900BE2AD9 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D68111B2993A900BE2AD9 /* LanguageViewController.swift */; };
 		F54D68141B299B4300BE2AD9 /* Flags in Resources */ = {isa = PBXBuildFile; fileRef = F54D68131B299B4300BE2AD9 /* Flags */; };
+		F5707F7D1B3D594C002B5D77 /* Logo-sm6.png in Resources */ = {isa = PBXBuildFile; fileRef = F5707F7C1B3D594C002B5D77 /* Logo-sm6.png */; };
+		F5707F7F1B3D5ED7002B5D77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5707F7E1B3D5ED7002B5D77 /* Images.xcassets */; };
 		F5AF681C1B173C2C00E5C1A7 /* AddContact.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */; };
 		F5AF68201B173DD700E5C1A7 /* Cog.png in Resources */ = {isa = PBXBuildFile; fileRef = F5AF681F1B173DD700E5C1A7 /* Cog.png */; };
 		F5AF68221B17405400E5C1A7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */; };
 		F5B546541B3D548200FA6B9B /* Untitled-7.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B546531B3D548200FA6B9B /* Untitled-7.png */; };
+		F5D620A41B3D695F00F1DF1F /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = F5D620A31B3D695F00F1DF1F /* AppIcon.appiconset */; };
+		F5D620A61B3D6DF800F1DF1F /* AddContact.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D620A51B3D6DF800F1DF1F /* AddContact.png */; };
 		F5E33AA41B296FC80048A66E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E33AA31B296FC80048A66E /* ViewController.swift */; };
 		F5E33AB21B3C21DD0048A66E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E33AB11B3C21DD0048A66E /* DateExtension.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +47,6 @@
 		F52E60A11B1734BA00CBB20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F52E60A21B1734BA00CBB20C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F52E60A71B1734BA00CBB20C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F52E60A91B1734BB00CBB20C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F52E60AC1B1734BB00CBB20C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F52E60B21B1734BB00CBB20C /* Hidden CharmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hidden CharmTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52E60B71B1734BB00CBB20C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,10 +56,14 @@
 		F54D680F1B2992EC00BE2AD9 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		F54D68111B2993A900BE2AD9 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		F54D68131B299B4300BE2AD9 /* Flags */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Flags; sourceTree = "<group>"; };
+		F5707F7C1B3D594C002B5D77 /* Logo-sm6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Logo-sm6.png"; path = "../Logo-sm6.png"; sourceTree = "<group>"; };
+		F5707F7E1B3D5ED7002B5D77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AddContact.gif; sourceTree = "<group>"; };
 		F5AF681F1B173DD700E5C1A7 /* Cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cog.png; sourceTree = "<group>"; };
 		F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F5B546531B3D548200FA6B9B /* Untitled-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-7.png"; sourceTree = "<group>"; };
+		F5D620A31B3D695F00F1DF1F /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = ../AppIcon.appiconset; sourceTree = "<group>"; };
+		F5D620A51B3D6DF800F1DF1F /* AddContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddContact.png; sourceTree = "<group>"; };
 		F5E33AA31B296FC80048A66E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5E33AA61B2970EB0048A66E /* HiddenCharm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiddenCharm-Bridging-Header.h"; path = "../HiddenCharm-Bridging-Header.h"; sourceTree = "<group>"; };
 		F5E33AB11B3C21DD0048A66E /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 				F54D68131B299B4300BE2AD9 /* Flags */,
 				F5E33AA61B2970EB0048A66E /* HiddenCharm-Bridging-Header.h */,
 				F5E33AB11B3C21DD0048A66E /* DateExtension.swift */,
+				F5707F7C1B3D594C002B5D77 /* Logo-sm6.png */,
 				F5AF681F1B173DD700E5C1A7 /* Cog.png */,
 				F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */,
 				F52E60C61B17379E00CBB20C /* MainTableViewController.swift */,
@@ -132,13 +139,15 @@
 				F52E60A61B1734BA00CBB20C /* Main.storyboard */,
 				F5E33AA31B296FC80048A66E /* ViewController.swift */,
 				F5AF68211B17405400E5C1A7 /* SettingsTableViewController.swift */,
-				F52E60A91B1734BB00CBB20C /* Images.xcassets */,
+				F5D620A51B3D6DF800F1DF1F /* AddContact.png */,
 				F5B546531B3D548200FA6B9B /* Untitled-7.png */,
 				F52E60AB1B1734BB00CBB20C /* LaunchScreen.xib */,
+				F5D620A31B3D695F00F1DF1F /* AppIcon.appiconset */,
 				F52E60A01B1734BA00CBB20C /* Supporting Files */,
 				F54D680D1B29929F00BE2AD9 /* CollectionViewCell.swift */,
 				F54D680F1B2992EC00BE2AD9 /* CollectionViewController.swift */,
 				F54D68111B2993A900BE2AD9 /* LanguageViewController.swift */,
+				F5707F7E1B3D5ED7002B5D77 /* Images.xcassets */,
 			);
 			path = "Hidden Charm";
 			sourceTree = "<group>";
@@ -223,7 +232,6 @@
 					};
 					F52E60B11B1734BB00CBB20C = {
 						CreatedOnToolsVersion = 6.3;
-						TestTargetID = F52E609C1B1734BA00CBB20C;
 					};
 				};
 			};
@@ -251,13 +259,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5707F7F1B3D5ED7002B5D77 /* Images.xcassets in Resources */,
 				F54D68141B299B4300BE2AD9 /* Flags in Resources */,
 				F52E60A81B1734BA00CBB20C /* Main.storyboard in Resources */,
 				F5AF681C1B173C2C00E5C1A7 /* AddContact.gif in Resources */,
+				F5D620A41B3D695F00F1DF1F /* AppIcon.appiconset in Resources */,
+				F5707F7D1B3D594C002B5D77 /* Logo-sm6.png in Resources */,
+				F5D620A61B3D6DF800F1DF1F /* AddContact.png in Resources */,
 				F52E60AD1B1734BB00CBB20C /* LaunchScreen.xib in Resources */,
 				F5AF68201B173DD700E5C1A7 /* Cog.png in Resources */,
 				F5B546541B3D548200FA6B9B /* Untitled-7.png in Resources */,
-				F52E60AA1B1734BB00CBB20C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +453,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEF2B2E7DA7BD6DBCF64BDC7 /* Pods-Hidden Charm.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hidden Charm/Info.plist";
@@ -457,7 +469,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E695156DFD38D33ECB8ECDC /* Pods-Hidden Charm.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hidden Charm/Info.plist";
@@ -471,7 +484,6 @@
 		F52E60C01B1734BB00CBB20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -483,14 +495,12 @@
 				INFOPLIST_FILE = "Hidden CharmTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hidden Charm.app/Hidden Charm";
 			};
 			name = Debug;
 		};
 		F52E60C11B1734BB00CBB20C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -498,7 +508,6 @@
 				INFOPLIST_FILE = "Hidden CharmTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hidden Charm.app/Hidden Charm";
 			};
 			name = Release;
 		};

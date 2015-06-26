@@ -134,7 +134,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jHD-PX-9nj">
                                 <rect key="frame" x="552" y="-234" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="AddContact.gif">
+                                <state key="normal" image="AddContact.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -209,8 +209,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AddContact.gif" width="512" height="512"/>
-        <image name="Cog.png" width="259" height="255"/>
+        <image name="AddContact.png" width="200" height="200"/>
+        <image name="Cog.png" width="200" height="200"/>
         <image name="Untitled-7.png" width="595" height="842"/>
     </resources>
     <color key="tintColor" red="0.039215686274509803" green="0.28235294117647058" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>

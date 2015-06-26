@@ -3,7 +3,7 @@
 //  Hidden Charm
 //
 //  Created by Fhict on 28/05/15.
-//  Copyright (c) 2015 Merint van Senus. All rights reserved.
+//  Copyright (c) 2015 Merint van Senus. All rights reserved./Users/fhict/Documents/Lisa/Semester 3/Smart Mobile/Periode6/Github/SMPT/Hidden Charm/Logo-sm6.png
 //
 
 import UIKit
