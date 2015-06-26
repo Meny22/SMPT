@@ -175,15 +175,17 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         label.clipsToBounds = true
         if(self.message != message.message as? String) {
             label.textAlignment = NSTextAlignment.Left
-            label.backgroundColor = UIColor.grayColor()
+            let swiftColor2 = UIColor(red: 0.81, green: 0.89, blue: 0.61, alpha: 1)
+            label.backgroundColor = swiftColor2
             label.center = CGPointMake(139, y)
             canSendMessage = true
             tfMessage.hidden = false
             sendButton.hidden = false
         }
         else {
+            let swiftColor = UIColor(red: 0.67, green: 0.85, blue: 0.66, alpha: 1)
             label.textAlignment = NSTextAlignment.Right
-            label.backgroundColor = UIColor.greenColor()
+            label.backgroundColor = swiftColor
             label.center = CGPointMake(149, y)
             tfMessage.text = ""
             sendButton.hidden = true
@@ -206,7 +208,7 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         svMessages.contentSize.height = y;
         userDefault.setValue(dateMessage, forKey: "receiveDate")
         userDefault.synchronize()
-        compareDate()
+        //compareDate()
     }
     
     func sendImage() {

@@ -78,6 +78,18 @@ class SettingsTableViewController: UITableViewController, UIPickerViewDataSource
 
         cell.textLabel?.text = settingTypesArray[indexPath.row]
         
+        let swiftColor = UIColor(red: 0.95, green: 0.99, blue: 0.99, alpha: 1)
+        let swiftColor2 = UIColor(red: 0.95, green: 0.99, blue: 0.97, alpha: 1)
+        // Configure the cell...
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = swiftColor2
+        }
+        else
+        {
+            cell.backgroundColor = swiftColor
+        }
+        
         if(indexPath.row == 0)
         {
             cell.detailTextLabel!.text = userDefaults.valueForKey("Nickname") as! String
