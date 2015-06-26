@@ -12,16 +12,19 @@ class MainTableViewController: UITableViewController {
 
     @IBOutlet weak var SettingsButton: UIButton!
     
+    var nameArray = ["Max","Eric","Michael", "John", "Meny", "Luc", "Merint", "Gerda", "Jan"]
+    
     @IBAction func AddContact(sender: UIButton)
     {
-        var nameAlert = UIAlertController(title: "Nieuw gesprek starten?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        var nameAlert = UIAlertController(title: "Start new chat?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         
-        nameAlert.addAction(UIAlertAction(title: "Nee", style: .Default, handler: { (action: UIAlertAction!) in
+        nameAlert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action: UIAlertAction!) in
             
         }))
         
-        nameAlert.addAction(UIAlertAction(title: "Ja", style: .Default, handler: { (action: UIAlertAction!) in
-            self.testArray.append("Lieke")
+        nameAlert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action: UIAlertAction!) in
+            let randomNumber = Int(arc4random_uniform(UInt32(9)))
+            self.testArray.append(self.nameArray[randomNumber])
             self.tableView.reloadData()
         }))
         
@@ -32,7 +35,6 @@ class MainTableViewController: UITableViewController {
         }
 
     }
-    
     var testArray = ["Nientje","Janneke","Lisa","Linda"]
     
     override func viewDidLoad() {
@@ -110,7 +112,23 @@ class MainTableViewController: UITableViewController {
         }
         delete.backgroundColor = UIColor.redColor()
         
-        return [delete]
+        let fav = UITableViewRowAction(style: .Normal, title: "Favorite") {
+            action, index in
+            var nameAlert = UIAlertController(title: "Favorite", message: "Add to favorites", preferredStyle: UIAlertControllerStyle.Alert)
+            nameAlert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action: UIAlertAction!) in
+                
+            }))
+            
+            nameAlert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            
+            self.presentViewController(nameAlert, animated: true){}
+            
+            
+        }
+        fav.backgroundColor = UIColor.yellowColor()
+        
+        return [delete, fav]
     }
     
     

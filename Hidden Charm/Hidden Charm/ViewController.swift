@@ -18,6 +18,8 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     var message: String!
     var canSendMessage = true
     var partnerName:String!
+    var label:UILabel!
+    var canShow = false
     var userDefault = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var bottomConstraintText: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraintScroll: NSLayoutConstraint!
@@ -62,6 +64,14 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         return true;
     }
     
+    func replaceString(message:String) -> String{
+        var text = message
+        text = text.stringByReplacingOccurrencesOfString("fuck", withString: "love", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        text = text.stringByReplacingOccurrencesOfString("bitch", withString: "sweet heart", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        text = text.stringByReplacingOccurrencesOfString("shit", withString: "flower", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        text = text.stringByReplacingOccurrencesOfString("06", withString: "22", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        return text
+    }
     
 
     @IBAction func sendMessage(sender: UIButton) {
@@ -69,8 +79,10 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         //message = base64String
         var sendDate = getDelay()
         if(canSendMessage && tfMessage.text != "") {
-            message = sendDate + tfMessage.text
-            message = message!.stringByReplacingOccurrencesOfString("fuck", withString: "love", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            message = tfMessage.text
+            message = replaceString(message)
+            message = sendDate + message
+            
             println(message);
             PubNub.sendMessage(message, toChannel: channel)
             canSendMessage = false
@@ -112,7 +124,7 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             date = addTime(3, unit: NSCalendarUnit.CalendarUnitHour, date:date)
             break
         case "1 hour" :
-            date = addTime(1, unit: NSCalendarUnit.CalendarUnitMinute, date:date)
+            date = addTime(10, unit: NSCalendarUnit.CalendarUnitSecond, date:date)
             break
         default :
             break
@@ -162,13 +174,18 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             currentFormat = dateFormatter.dateFromString(currentDate.description)
         if(dateFormat!.isLessThanDate(currentFormat!)) {
             println("Show message")
+            self.svMessages.addSubview(self.label)
             test = false
+            if(canShow) {
+                sendButton.hidden = false
+                tfMessage.hidden = false
+                }
             }
         }
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
-        var label = UILabel(frame: CGRectMake(0, 0, 250, 21))
+        label = UILabel(frame: CGRectMake(0, 0, 250, 21))
         label.textAlignment = NSTextAlignment.Left
         label.layer.cornerRadius = 7
         label.contentMode = UIViewContentMode.ScaleAspectFill
@@ -179,8 +196,24 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             label.backgroundColor = swiftColor2
             label.center = CGPointMake(139, y)
             canSendMessage = true
-            tfMessage.hidden = false
-            sendButton.hidden = false
+            self.canShow = true
+            var dateMessage = message.message.substringWithRange(NSRange(location:0, length:25))
+            var chatMessage = message.message.substringWithRange(NSRange(location:25, length:message.message.length-25))
+            label.text = "\(chatMessage)"
+            label.numberOfLines = 0
+            println(label.frame.width)
+            label.sizeToFit()
+            if(label.frame.width < 250)
+            {
+                var widthAdd: CGFloat = 250
+                label.frame.size.width = widthAdd
+            }
+            y += label.frame.height + 5
+            svMessages.contentSize.height = y;
+            userDefault.setValue(dateMessage, forKey: "receiveDate")
+            userDefault.synchronize()
+            let thread = NSThread(target:self, selector:"compareDate", object:nil)
+            thread.start()
         }
         else {
             let swiftColor = UIColor(red: 0.67, green: 0.85, blue: 0.66, alpha: 1)
@@ -188,27 +221,28 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             label.backgroundColor = swiftColor
             label.center = CGPointMake(149, y)
             tfMessage.text = ""
-            sendButton.hidden = true
+            self.canShow = false
             tfMessage.hidden = true
-            
+            sendButton.hidden = true
+            var dateMessage = message.message.substringWithRange(NSRange(location:0, length:25))
+            var chatMessage = message.message.substringWithRange(NSRange(location:25, length:message.message.length-25))
+            label.text = "\(chatMessage)"
+            label.numberOfLines = 0
+            println(label.frame.width)
+            label.sizeToFit()
+            if(label.frame.width < 250)
+            {
+                var widthAdd: CGFloat = 250
+                label.frame.size.width = widthAdd
+            }
+            y += label.frame.height + 5
+            svMessages.contentSize.height = y;
+            userDefault.setValue(dateMessage, forKey: "receiveDate")
+            userDefault.synchronize()
+            self.svMessages.addSubview(self.label)
         }
-        var dateMessage = message.message.substringWithRange(NSRange(location:0, length:25))
-        var chatMessage = message.message.substringWithRange(NSRange(location:25, length:message.message.length-25))
-        label.text = "\(chatMessage)"
-        label.numberOfLines = 0
-        println(label.frame.width)
-        label.sizeToFit()
-        if(label.frame.width < 250)
-        {
-            var widthAdd: CGFloat = 250
-            label.frame.size.width = widthAdd
-        }
-        y += label.frame.height + 5
-        self.svMessages.addSubview(label)
-        svMessages.contentSize.height = y;
-        userDefault.setValue(dateMessage, forKey: "receiveDate")
-        userDefault.synchronize()
-        //compareDate()
+
+        
     }
     
     func sendImage() {
