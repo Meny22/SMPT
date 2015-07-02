@@ -27,6 +27,8 @@
 		F5D620A61B3D6DF800F1DF1F /* AddContact.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D620A51B3D6DF800F1DF1F /* AddContact.png */; };
 		F5E33AA41B296FC80048A66E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E33AA31B296FC80048A66E /* ViewController.swift */; };
 		F5E33AB21B3C21DD0048A66E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E33AB11B3C21DD0048A66E /* DateExtension.swift */; };
+		F5E33AB41B4528850048A66E /* BoxLeftToRightDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E33AB31B4528850048A66E /* BoxLeftToRightDown.png */; };
+		F5E33AB61B4529390048A66E /* Letter.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E33AB51B4529390048A66E /* Letter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		F5E33AA31B296FC80048A66E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5E33AA61B2970EB0048A66E /* HiddenCharm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HiddenCharm-Bridging-Header.h"; path = "../HiddenCharm-Bridging-Header.h"; sourceTree = "<group>"; };
 		F5E33AB11B3C21DD0048A66E /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		F5E33AB31B4528850048A66E /* BoxLeftToRightDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BoxLeftToRightDown.png; sourceTree = "<group>"; };
+		F5E33AB51B4529390048A66E /* Letter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Letter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 				F5707F7C1B3D594C002B5D77 /* Logo-sm6.png */,
 				F5AF681F1B173DD700E5C1A7 /* Cog.png */,
 				F5AF681B1B173C2C00E5C1A7 /* AddContact.gif */,
+				F5E33AB51B4529390048A66E /* Letter.png */,
+				F5E33AB31B4528850048A66E /* BoxLeftToRightDown.png */,
 				F52E60C61B17379E00CBB20C /* MainTableViewController.swift */,
 				F52E60A21B1734BA00CBB20C /* AppDelegate.swift */,
 				F52E60A61B1734BA00CBB20C /* Main.storyboard */,
@@ -263,6 +269,8 @@
 				F54D68141B299B4300BE2AD9 /* Flags in Resources */,
 				F52E60A81B1734BA00CBB20C /* Main.storyboard in Resources */,
 				F5AF681C1B173C2C00E5C1A7 /* AddContact.gif in Resources */,
+				F5E33AB41B4528850048A66E /* BoxLeftToRightDown.png in Resources */,
+				F5E33AB61B4529390048A66E /* Letter.png in Resources */,
 				F5D620A41B3D695F00F1DF1F /* AppIcon.appiconset in Resources */,
 				F5707F7D1B3D594C002B5D77 /* Logo-sm6.png in Resources */,
 				F5D620A61B3D6DF800F1DF1F /* AddContact.png in Resources */,

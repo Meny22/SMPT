@@ -19,7 +19,11 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     var canSendMessage = true
     var partnerName:String!
     var label:UILabel!
+    var totalDifference = 0
     var canShow = false
+    var timer:NSTimer!
+    var dateFormat:NSDate!
+    var currentFormat:NSDate!
     var userDefault = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var bottomConstraintText: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraintScroll: NSLayoutConstraint!
@@ -28,7 +32,12 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var svMessages: UIScrollView!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var ivLetter1: UIImageView!
+    @IBOutlet weak var ivLetter2: UIImageView!
+    @IBOutlet weak var ivLetter3: UIImageView!
+    @IBOutlet weak var ivMailBox: UIImageView!
     override func viewDidLoad() {
+        hideImages()
         self.userDefault.setValue(NSDate(), forKey: "receiveDate")
         self.userDefault.synchronize()
         initializeConn()
@@ -40,6 +49,13 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         // Do any additional setup after loading the view, typically from a nib.
         var tap = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         svMessages.addGestureRecognizer(tap)
+    }
+    
+    func hideImages() {
+        self.ivLetter1.hidden = true
+        self.ivLetter2.hidden = true
+        self.ivLetter3.hidden = true
+        self.ivMailBox.hidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,6 +100,8 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             message = sendDate + message
             
             println(message);
+            ivMailBox.hidden = false
+            dismissKeyboard()
             PubNub.sendMessage(message, toChannel: channel)
             canSendMessage = false
         } else if(tfMessage.text  == ""){
@@ -121,7 +139,7 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             date = addTime(6, unit: NSCalendarUnit.CalendarUnitHour, date:date)
             break
         case "3 hours" :
-            date = addTime(3, unit: NSCalendarUnit.CalendarUnitHour, date:date)
+            date = addTime(1, unit: NSCalendarUnit.CalendarUnitMinute, date:date)
             break
         case "1 hour" :
             date = addTime(10, unit: NSCalendarUnit.CalendarUnitSecond, date:date)
@@ -160,28 +178,51 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         let day = components.day
         let month = components.month
         let year = components.year
-        var dateFormat = dateFormatter.dateFromString(dateMessage)
-        var currentFormat = dateFormatter.dateFromString(currentDate.description)
-        var test = true
-        while(test){
-            currentDate = NSDate()
-            let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute, fromDate: currentDate)
-            let hour = components.hour
-            let minutes = components.minute
-            let day = components.day
-            let month = components.month
-            let year = components.year
-            currentFormat = dateFormatter.dateFromString(currentDate.description)
-        if(dateFormat!.isLessThanDate(currentFormat!)) {
-            println("Show message")
-            self.svMessages.addSubview(self.label)
-            test = false
-            if(canShow) {
-                sendButton.hidden = false
-                tfMessage.hidden = false
-                }
+        dateFormat = dateFormatter.dateFromString(dateMessage)!
+        currentFormat = dateFormatter.dateFromString(currentDate.description)!
+        currentDate = NSDate()
+        currentFormat = dateFormatter.dateFromString(currentDate.description)!
+        let componentsDif = calendar.components(NSCalendarUnit.CalendarUnitSecond, fromDate: currentFormat, toDate: dateFormat, options: nil)
+        self.totalDifference = componentsDif.second
+        println(self.totalDifference)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("checkTime"), userInfo:nil, repeats: true)
             }
         }
+    
+    func checkTime() {
+            var currentDate = NSDate()
+            var calendar = NSCalendar.currentCalendar()
+            var currentFormat = dateFormatter.dateFromString(currentDate.description)
+            let componentsDif = calendar.components(NSCalendarUnit.CalendarUnitSecond, fromDate: currentFormat!, toDate: dateFormat, options: nil)
+            println(componentsDif.second)
+            if(componentsDif.second < (self.totalDifference/3) * 2 && componentsDif.second > (self.totalDifference/3)) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.ivLetter2.hidden = false
+                    self.ivLetter1.hidden = true
+                }
+                println("kleiner dan 6")
+            } else if(componentsDif.second < self.totalDifference/3) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.ivLetter3.hidden = false
+                    self.ivLetter2.hidden = true
+                    self.ivLetter1.hidden = true
+                }
+                println("kleiner dan 3")
+            }
+            if(dateFormat.isLessThanDate(currentFormat!)) {
+                println("Show message")
+                self.svMessages.addSubview(self.label)
+                self.timer.invalidate()
+                if(canShow) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.sendButton.hidden = false
+                    self.tfMessage.hidden = false
+                    self.hideImages()
+                    }
+                }
+            }
+
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
@@ -212,6 +253,11 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             svMessages.contentSize.height = y;
             userDefault.setValue(dateMessage, forKey: "receiveDate")
             userDefault.synchronize()
+            dismissKeyboard()
+            ivLetter1.hidden = false
+            sendButton.hidden = true
+            tfMessage.hidden = true
+            ivMailBox.hidden = false
             let thread = NSThread(target:self, selector:"compareDate", object:nil)
             thread.start()
         }

@@ -30,7 +30,6 @@ extension NSDate
     {
         //Declare Variables
         var isLess = false
-        println("default: " + self.description + " current:" + dateToCompare.description)
         //Compare Values
         if self.compare(dateToCompare) == NSComparisonResult.OrderedAscending
         {
