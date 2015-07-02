@@ -184,18 +184,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Letter.png" translatesAutoresizingMaskIntoConstraints="NO" id="bCm-Ry-XkT">
-                                <rect key="frame" x="28" y="417" width="52" height="52"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BoxLeftToRightDown.png" translatesAutoresizingMaskIntoConstraints="NO" id="9dK-Sz-H4o">
-                                <rect key="frame" x="234" y="403" width="70" height="70"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Letter.png" translatesAutoresizingMaskIntoConstraints="NO" id="N1o-vl-GfJ">
-                                <rect key="frame" x="95" y="417" width="52" height="52"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Letter.png" translatesAutoresizingMaskIntoConstraints="NO" id="t4U-Pk-SDn">
-                                <rect key="frame" x="162" y="417" width="52" height="52"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -210,10 +198,6 @@
                         <outlet property="bottomConstraintScroll" destination="02f-Cl-6Jg" id="q6P-mU-HRd"/>
                         <outlet property="bottomConstraintText" destination="sOi-8Z-KbS" id="HJD-Bu-hU0"/>
                         <outlet property="bottomConstraints" destination="oOW-zw-Tps" id="qwM-Hk-6Ru"/>
-                        <outlet property="ivLetter1" destination="bCm-Ry-XkT" id="x2Z-4r-6VO"/>
-                        <outlet property="ivLetter2" destination="N1o-vl-GfJ" id="5wm-vo-3gH"/>
-                        <outlet property="ivLetter3" destination="t4U-Pk-SDn" id="xJS-F3-HYJ"/>
-                        <outlet property="ivMailBox" destination="9dK-Sz-H4o" id="xln-bP-j4x"/>
                         <outlet property="sendButton" destination="yPd-90-p60" id="Qoo-Qs-tQt"/>
                         <outlet property="svMessages" destination="ewi-xs-z7C" id="8Aj-L3-vSv"/>
                         <outlet property="tfMessage" destination="n1a-B6-SF4" id="VIg-cm-t3G"/>
@@ -226,9 +210,7 @@
     </scenes>
     <resources>
         <image name="AddContact.png" width="200" height="200"/>
-        <image name="BoxLeftToRightDown.png" width="200" height="200"/>
         <image name="Cog.png" width="200" height="200"/>
-        <image name="Letter.png" width="600" height="445"/>
         <image name="Untitled-7.png" width="595" height="842"/>
     </resources>
     <color key="tintColor" red="0.039215686274509803" green="0.28235294117647058" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>

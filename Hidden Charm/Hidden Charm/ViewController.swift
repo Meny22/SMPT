@@ -24,6 +24,7 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     var timer:NSTimer!
     var dateFormat:NSDate!
     var currentFormat:NSDate!
+    var chatMessage:String!
     var userDefault = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var bottomConstraintText: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraintScroll: NSLayoutConstraint!
@@ -32,12 +33,7 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var svMessages: UIScrollView!
     @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var ivLetter1: UIImageView!
-    @IBOutlet weak var ivLetter2: UIImageView!
-    @IBOutlet weak var ivLetter3: UIImageView!
-    @IBOutlet weak var ivMailBox: UIImageView!
     override func viewDidLoad() {
-        hideImages()
         self.userDefault.setValue(NSDate(), forKey: "receiveDate")
         self.userDefault.synchronize()
         initializeConn()
@@ -51,12 +47,6 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         svMessages.addGestureRecognizer(tap)
     }
     
-    func hideImages() {
-        self.ivLetter1.hidden = true
-        self.ivLetter2.hidden = true
-        self.ivLetter3.hidden = true
-        self.ivMailBox.hidden = true
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,7 +90,6 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             message = sendDate + message
             
             println(message);
-            ivMailBox.hidden = false
             dismissKeyboard()
             PubNub.sendMessage(message, toChannel: channel)
             canSendMessage = false
@@ -198,15 +187,12 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             println(componentsDif.second)
             if(componentsDif.second < (self.totalDifference/3) * 2 && componentsDif.second > (self.totalDifference/3)) {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.ivLetter2.hidden = false
-                    self.ivLetter1.hidden = true
+                    self.label.alpha = 0.4
                 }
                 println("kleiner dan 6")
             } else if(componentsDif.second < self.totalDifference/3) {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.ivLetter3.hidden = false
-                    self.ivLetter2.hidden = true
-                    self.ivLetter1.hidden = true
+                    self.label.alpha = 0.6
                 }
                 println("kleiner dan 3")
             }
@@ -218,7 +204,17 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
                 dispatch_async(dispatch_get_main_queue()) {
                     self.sendButton.hidden = false
                     self.tfMessage.hidden = false
-                    self.hideImages()
+                    self.label.text = "\(self.chatMessage)"
+                    self.label.numberOfLines = 0
+                    println(self.label.frame.width)
+                    self.label.sizeToFit()
+                    if(self.label.frame.width < 250)
+                    {
+                        var widthAdd: CGFloat = 250
+                        self.label.frame.size.width = widthAdd
+                    }
+                    self.y += self.label.frame.height + 5
+                    self.label.alpha = 1.0
                     }
                 }
             }
@@ -231,6 +227,7 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
         label.layer.cornerRadius = 7
         label.contentMode = UIViewContentMode.ScaleAspectFill
         label.clipsToBounds = true
+        
         if(self.message != message.message as? String) {
             label.textAlignment = NSTextAlignment.Left
             let swiftColor2 = UIColor(red: 0.81, green: 0.89, blue: 0.61, alpha: 1)
@@ -239,25 +236,15 @@ class ViewController: UIViewController, PNDelegate, UITextFieldDelegate{
             canSendMessage = true
             self.canShow = true
             var dateMessage = message.message.substringWithRange(NSRange(location:0, length:25))
-            var chatMessage = message.message.substringWithRange(NSRange(location:25, length:message.message.length-25))
-            label.text = "\(chatMessage)"
-            label.numberOfLines = 0
-            println(label.frame.width)
-            label.sizeToFit()
-            if(label.frame.width < 250)
-            {
-                var widthAdd: CGFloat = 250
-                label.frame.size.width = widthAdd
-            }
-            y += label.frame.height + 5
+            chatMessage = message.message.substringWithRange(NSRange(location:25, length:message.message.length-25))
             svMessages.contentSize.height = y;
             userDefault.setValue(dateMessage, forKey: "receiveDate")
             userDefault.synchronize()
             dismissKeyboard()
-            ivLetter1.hidden = false
             sendButton.hidden = true
             tfMessage.hidden = true
-            ivMailBox.hidden = false
+            self.svMessages.addSubview(self.label)
+            label.alpha = 0.2
             let thread = NSThread(target:self, selector:"compareDate", object:nil)
             thread.start()
         }
